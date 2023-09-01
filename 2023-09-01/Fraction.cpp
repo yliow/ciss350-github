@@ -45,9 +45,16 @@ std::ostream & operator<<(std::ostream & cout,
     return cout;
 }
 
-Fraction Fraction::operator+(const Fraction & f)
+Fraction Fraction::operator+(const Fraction & f) const
 {
    int n = n_ * f.d_ + d_ * f.n_;
+   int d = d_ * f.d_;
+   return Fraction(n, d);
+}
+
+Fraction Fraction::operator-(const Fraction & f) const
+{
+   int n = n_ * f.d_ - d_ * f.n_;
    int d = d_ * f.d_;
    return Fraction(n, d);
 }

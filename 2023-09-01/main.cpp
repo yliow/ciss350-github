@@ -27,5 +27,8 @@ int main()
     f2 = f0 + f2; // is actually f2 = f0.operator+(f0)
     std::cout << f2 << '\n';
     
+    f2 = f0 - f2; // is actually f2 = f0.operator-(f0)
+    std::cout << f2 << '\n';
+    
     return 0;
 }

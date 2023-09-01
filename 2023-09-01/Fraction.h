@@ -11,7 +11,8 @@ class Fraction
     int & n();
     int d() const;
     void set_n(int n);
-    Fraction operator+(const Fraction & f);
+    Fraction operator+(const Fraction & f) const;
+    Fraction operator-(const Fraction & f) const;
   private:
     int n_, d_; 
 };
