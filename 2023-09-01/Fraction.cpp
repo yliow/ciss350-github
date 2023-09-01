@@ -14,6 +14,11 @@ int Fraction::n() const
     return n_;
 }
 
+int & Fraction::n() 
+{
+    return n_;
+}
+
 int Fraction::d() const
 {
     return d_;
@@ -39,3 +44,11 @@ std::ostream & operator<<(std::ostream & cout,
     }
     return cout;
 }
+
+Fraction Fraction::operator+(const Fraction & f)
+{
+   int n = n_ * f.d_ + d_ * f.n_;
+   int d = d_ * f.d_;
+   return Fraction(n, d);
+}
+

@@ -8,8 +8,10 @@ class Fraction
   public:
     Fraction(int n, int d);
     int n() const;
+    int & n();
     int d() const;
     void set_n(int n);
+    Fraction operator+(const Fraction & f);
   private:
     int n_, d_; 
 };
