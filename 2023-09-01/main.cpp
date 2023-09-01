@@ -8,9 +8,9 @@ int main()
 
     std::cout << f0 << '\n'; // better
 
-    f0.set_n(42); 
+    //f0.set_n(42); 
     std::cout << f0 << '\n'; // better
-    f0.n() = 43; 
+    f0.n() = 3; 
     std::cout << f0 << '\n'; // better
 
     // (std::cout << f0) is the same
@@ -24,7 +24,8 @@ int main()
     Fraction f2(3, 1);
     std::cout << f2 << '\n'; // better
 
-    //f2 = f0 + f0;
-
+    f2 = f0 + f2; // is actually f2 = f0.operator+(f0)
+    std::cout << f2 << '\n';
+    
     return 0;
 }
