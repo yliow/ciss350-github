@@ -7,9 +7,7 @@ class Matrix
     Matrix(int nrows, int ncols)
         : nrows_(nrows), ncols_(ncols),
         p_(new double[nrows * ncols])
-
-    {
-    }
+    {}
     int nrows() const
     {
         return nrows_;
