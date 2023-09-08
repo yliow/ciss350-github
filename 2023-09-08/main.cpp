@@ -45,5 +45,7 @@ int main()
 
     Matrix m(2, 3);
     std::cout << m.nrows() << ' ' << m.ncols() <<  '\n';
+    m.println();
+    
     return 0;
 }
