@@ -18,11 +18,19 @@ class Matrix
     {
         return ncols_;
     }
+    double get_value(int r, int c)
+    {
+        return p_[c + ncols_ * r];
+    }
     void println()
     {
-        for (int i = 0; i < nrows_ * ncols_; ++i)
+        for (int r = 0; r < nrows_; ++r)
         {
-            std::cout << p_[i] << ' ';
+            for (int c = 0; r < ncols_; ++c)
+            {
+                std::cout << get_value(r, c);
+            }
+            std::cout << '\n';
         }
         std::cout << '\n';
     }
