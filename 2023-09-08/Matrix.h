@@ -26,6 +26,10 @@ class Matrix
     {
         return p_[c + ncols_ * r];        
     }
+    double & operator()(int r, int c)
+    {
+        return p_[c + ncols_ * r];        
+    }
     void println()
     {
         for (int r = 0; r < nrows_; ++r)

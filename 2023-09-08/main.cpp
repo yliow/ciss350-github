@@ -46,7 +46,11 @@ int main()
     Matrix m(2, 3);
     std::cout << m.nrows() << ' ' << m.ncols() <<  '\n';
     m.println();
+    std::cout << m << '\n';
 
     std::cout << m(1, 2) << '\n'; // m(1, 2) = m.operator()(1, 2)
+    m(1, 2) = 42;
+    std::cout << m << '\n';
+    
     return 0;
 }
