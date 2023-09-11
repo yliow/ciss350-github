@@ -10,6 +10,22 @@ class Matrix
         : nrows_(nrows), ncols_(ncols),
         p_(new double[nrows * ncols])
     {}
+    Matrix(const Matrix & m)
+        : nrows_(m.nrows_), ncols_(m.ncols_),
+        p_(new double[m.nrows_ * m.ncols_])
+    {
+        for (int i = 0; i < m.nrows_ * m.ncols_; ++i)
+        {
+            p_[i] = m.p_[i];
+        }
+    }
+    ~Matrix()
+    {
+        std::cout << "Matrix::~Matrix() called ... "
+                  << p_
+                  << std::endl;
+        delete[] p_;
+    }
     int nrows() const
     {
         return nrows_;
