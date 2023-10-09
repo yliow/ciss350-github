@@ -59,6 +59,9 @@ int main()
     // std::cout << (*p0) << '\n';
 
     print_list(p5);
+
+    SLList list;
+    std::cout << list.phead_ << '\n';
     
     return 0;
 }
