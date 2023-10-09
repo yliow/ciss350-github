@@ -26,6 +26,21 @@ class Matrix
                   << std::endl;
         delete[] p_;
     }
+    const Matrix & operator=(const Matrix & m)
+    {
+        if (this != &m)
+        {
+            nrows_ = m.nrows_;
+            ncols_ = m.ncols_;
+            delete[] p_;
+            p_ = new double[m.nrows_ * m.ncols_];
+            for (int i = 0; i < m.nrows_ * m.ncols_; ++i)
+            {
+                p_[i] = m.p_[i];
+            }
+        }
+        return (*this);
+    }
     int nrows() const
     {
         return nrows_;

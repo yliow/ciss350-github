@@ -52,6 +52,9 @@ int main()
     std::cout << m << '\n';
 
     Matrix m1(m);
+    std::cout << m1 << '\n';
 
+    m1 = m;
+    
     return 0;
 } // m calls m.~Matrix()
