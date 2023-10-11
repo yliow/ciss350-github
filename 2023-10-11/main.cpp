@@ -32,6 +32,9 @@ public:
     {}
     void insert_head(int key)
     {
+        SLNode * p = new SLNode(key, NULL);
+        p->next_ = phead_;
+        phead_ = p;
     }
     SLNode * phead_;
 };
