@@ -32,20 +32,18 @@ public:
     {}
     void insert_head(int key)
     {
-        SLNode * p = new SLNode(key, NULL);
-        p->next_ = phead_;
-        phead_ = p;
+        phead_ = new SLNode(key, phead_);
     }
     SLNode * phead_;
 };
 
 std::ostream & operator<<(std::ostream & cout, const SLList & list)
 {
-    cout << "<SLList " << &list << ' ';
+    cout << "<SLList " << &list << '\n';
     SLNode * p = list.phead_;
     while (p != NULL)
     {
-        std::cout << (*p) << '\n';
+        std::cout << "  " << (*p) << '\n';
         p = p->next_;
     }
     cout << '>';
@@ -65,29 +63,41 @@ void print_list(SLNode * p)
 // 5->1->3->0
 int main()
 {
-    SLNode * p5 = new SLNode(5, NULL);
+    // SLNode * p5 = new SLNode(5, NULL);
 
-    SLNode * p1 = new SLNode(1, NULL);
-    p5->next_ = p1;
+    // SLNode * p1 = new SLNode(1, NULL);
+    // p5->next_ = p1;
     
-    SLNode * p3 = new SLNode(3, NULL);
-    p1->next_ = p3;
+    // SLNode * p3 = new SLNode(3, NULL);
+    // p1->next_ = p3;
     
-    SLNode * p0 = new SLNode(0, NULL);
-    p3->next_ = p0;
+    // SLNode * p0 = new SLNode(0, NULL);
+    // p3->next_ = p0;
     
     // std::cout << (*p5) << '\n';
     // std::cout << (*p1) << '\n';
     // std::cout << (*p3) << '\n';
     // std::cout << (*p0) << '\n';
 
-    print_list(p5);
+    // print_list(p5);
 
     SLList list;
     std::cout << list << '\n';
 
     std::cout << "inserting head with 1 ...\n";
     list.insert_head(1);
+    std::cout << list << '\n';
+
+    std::cout << "inserting head with 0 ...\n";
+    list.insert_head(0);
+    std::cout << list << '\n';
+
+    std::cout << "inserting head with 3 ...\n";
+    list.insert_head(3);
+    std::cout << list << '\n';
+
+    std::cout << "inserting head with 5 ...\n";
+    list.insert_head(5);
     std::cout << list << '\n';
 
     return 0;
