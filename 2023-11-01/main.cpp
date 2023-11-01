@@ -36,10 +36,22 @@ int main()
     p5->left_ = p3;
     Node * p0 = new Node(0, p5);
     p5->right_ = p0;
+    Node * p1 = new Node(0, p3);
+    p3->right_ = p1;
+    Node * p2 = new Node(2, p0);
+    p0->left_ = p2;
+    Node * p4 = new Node(4, p0);
+    p0->right_ = p4;
+    Node * p6 = new Node(6, p2);
+    p2->left_ = p6;
     
     std::cout << (*p5) << '\n';
     std::cout << (*p3) << '\n';
     std::cout << (*p0) << '\n';
+    std::cout << (*p1) << '\n';
+    std::cout << (*p2) << '\n';
+    std::cout << (*p4) << '\n';
+    std::cout << (*p6) << '\n';
     
     return 0;
 }
