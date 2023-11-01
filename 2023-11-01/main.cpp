@@ -13,6 +13,17 @@ public:
     Node * right_;
 };
 
+std::ostream & operator<<(std::ostream & cout, const Node & n)
+{
+    cout << "<Node " << &n
+         << " key:" << n.key_
+         << " parent:" << n.parent_
+         << " left:" << n.left_
+         << " right:" << n.right_
+         << '>';
+    return cout;
+}
+
 //          5
 //     3        0
 //       1    2   4
