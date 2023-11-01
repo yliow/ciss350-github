@@ -36,7 +36,7 @@ int main()
     p5->left_ = p3;
     Node * p0 = new Node(0, p5);
     p5->right_ = p0;
-    Node * p1 = new Node(0, p3);
+    Node * p1 = new Node(1, p3);
     p3->right_ = p1;
     Node * p2 = new Node(2, p0);
     p0->left_ = p2;
