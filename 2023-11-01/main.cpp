@@ -32,5 +32,14 @@ std::ostream & operator<<(std::ostream & cout, const Node & n)
 int main()
 {
     Node * p5 = new Node(5);
+    Node * p3 = new Node(3, p5);
+    p5->left_ = p3;
+    Node * p0 = new Node(0, p5);
+    p5->right_ = p0;
+    
+    std::cout << (*p5) << '\n';
+    std::cout << (*p3) << '\n';
+    std::cout << (*p0) << '\n';
+    
     return 0;
 }
