@@ -70,6 +70,26 @@ void inorder_DF_print(Node * proot)
     }    
 }
 
+void postorder_DF_print(Node * proot)
+{
+    if (proot == NULL)
+    {
+        // tree is empty
+        std::cout << "* ";
+    }
+    else
+    {
+        // tree is nonempty
+        // do post-order DF traversal
+        // print left subtree
+        // print right subtree
+        // print root
+        postorder_DF_print(proot->left_);
+        postorder_DF_print(proot->right_);
+        std::cout << proot->key_ << ' ';
+    }    
+}
+
 //          5
 //     3        0
 //       1    2   4
@@ -102,6 +122,8 @@ int main()
     preorder_DF_print(p5);
     std::cout << '\n';
     inorder_DF_print(p5);
+    std::cout << '\n';
+    postorder_DF_print(p5);
     std::cout << '\n';
     
     return 0;
