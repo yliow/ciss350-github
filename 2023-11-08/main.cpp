@@ -109,9 +109,27 @@ int height(Node * proot)
                   << rightheight << '\n';
         int maxheights = (leftheight >= rightheight ? leftheight : rightheight);
         std::cout << "root:" << proot->key_ << " height:"
-                  << maxheight << '\n';
+                  << maxheights << '\n';
 
         return maxheights + 1;
+    }
+}
+
+int max2(int x, int y)
+{
+    return (x >= y ? x : y);
+}
+int max(Node * proot)
+{
+    if (proot == NULL)
+    {
+        return -1;
+    }
+    else
+    {
+        int leftmax = max(proot->left_);
+        int rightmax = max(proot->right_);
+        return max2(max2(leftmax, rightmax), proot->key_);
     }
 }
 
