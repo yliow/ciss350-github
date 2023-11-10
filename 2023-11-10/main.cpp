@@ -235,5 +235,6 @@ int main()
     std::cout << "s5:" << s5 << '\n';
 
     Node * result = find(p5, 5);
+    std::cout << (*result) << '\n';
     return 0;
 }
