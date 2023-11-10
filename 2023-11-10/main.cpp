@@ -190,6 +190,18 @@ Node * find(Node * proot, int target)
     }
 }
 
+Node * leftmost(Node * proot)
+{
+    if (proot == NULL)
+    {
+        ??
+    }
+    else
+    {
+        leftmost(proot->left_);
+    }
+}
+
 //          5
 //     3        0
 //       1    2   4
@@ -236,5 +248,18 @@ int main()
 
     Node * result = find(p5, 5);
     std::cout << (*result) << '\n';
+
+    std::cout << "look for 1 ...\n";
+    result = find(p5, 1);
+    std::cout << (*result) << '\n';
+
+    std::cout << "look for 6 ...\n";
+    result = find(p5, 6);
+    std::cout << (*result) << '\n';
+    
+    std::cout << "look for 7 ...\n";
+    result = find(p5, 7);
+    std::cout << result << '\n';
+
     return 0;
 }
