@@ -192,15 +192,48 @@ Node * find(Node * proot, int target)
 
 Node * leftmost(Node * proot)
 {
+    // The following is WRONG ... went down too far
+    // if (proot == NULL)
+    // {
+    //     ??
+    // }
+    // else
+    // {
+    //     return leftmost(proot->left_); ??
+    //}
+
     if (proot == NULL)
     {
-        ??
+        return NULL;
     }
     else
     {
-        leftmost(proot->left_);
+        if (proot->left_ == NULL)
+        {
+            return proot;
+        }
+        else
+        {
+            return leftmost(proot->left_);
+        }
     }
 }
+
+Node * rightmost(Node * proot)
+{
+    return NULL;
+}
+
+Node * succ(Node * proot)
+{
+    return NULL;
+}
+
+Node * pred(Node * proot)
+{
+    return NULL;
+}
+
 
 //          5
 //     3        0
@@ -261,5 +294,9 @@ int main()
     result = find(p5, 7);
     std::cout << result << '\n';
 
+    std::cout << "leftmost of p3: " << (*leftmost(p3)) << '\n';
+    std::cout << "leftmost of p5: " << (*leftmost(p5)) << '\n';
+    std::cout << "leftmost of p0: " << (*leftmost(p0)) << '\n';
+    
     return 0;
 }
