@@ -177,14 +177,14 @@ Node * find(Node * proot, int target)
         }
         else
         {
-            Node * left = find(proot->left, target);
+            Node * left = find(proot->left_, target);
             if (left != NULL)
             {
                 return left;
             }
             else
             {
-                return find(proot->right, target);
+                return find(proot->right_, target);
             }
         }
     }
@@ -233,6 +233,7 @@ int main()
 
     int s5 = sum(p5);
     std::cout << "s5:" << s5 << '\n';
-    
+
+    Node * result = find(p5, 5);
     return 0;
 }
