@@ -137,17 +137,56 @@ int sum(Node * proot)
 {
     if (proot == NULL)
     {
-        std::cout << "base case ... returning 0 now ...\n";
+        std::cout << "sum ... base case ... returning 0 now ...\n";
         return 0;
     }
     else
     {
+        // df postorder traversal (any df would do)
+        int ret = 0;
+
         int leftsum = sum(proot->left_);
-        std::cout << proot->key_ << " ... left sum:" << leftsum << '\n';
+        std::cout << proot->key_ << " sum ... left sum:" << leftsum << '\n';
+        ret += leftsum;
+        
         int rightsum = sum(proot->right_);
-        std::cout << proot->key_ << " ... right sum:" << rightsum << '\n';
-        std::cout << "recursive case at " << proot->key_ << " ... returning " << proot->key_ + leftsum + rightsum << " now ...\n";
-        return proot->key_ + leftsum + rightsum;
+        std::cout << proot->key_ << " sum ... right sum:" << rightsum << '\n';
+        ret += rightsum;
+
+        ret += proot->key_;
+        std::cout << "sum ... recursive case at " << proot->key_ << " ... returning " << proot->key_ + leftsum + rightsum << " now ...\n";
+        return ret;
+    }
+}
+
+Node * find(Node * proot, int target)
+{
+    if (proot == NULL)
+    {
+        // base case:
+        return NULL;
+    }
+    else
+    {
+        // recursive case:
+        // check root node, and THEN left subtree and THEN right subtree
+        // i.e. use df preorder traversal.
+        if (proot->key_ == target)
+        {
+            return proot;
+        }
+        else
+        {
+            Node * left = find(proot->left, target);
+            if (left != NULL)
+            {
+                return left;
+            }
+            else
+            {
+                return find(proot->right, target);
+            }
+        }
     }
 }
 
@@ -191,5 +230,9 @@ int main()
     // std::cout << "height at 3: " << height(p3) << '\n';
     // std::cout << "height at 1: " << height(p1) << '\n';
     // std::cout << "height at NULL: " << height(NULL) << '\n';
+
+    int s5 = sum(p5);
+    std::cout << "s5:" << s5 << '\n';
+    
     return 0;
 }
