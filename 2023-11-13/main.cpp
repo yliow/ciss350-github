@@ -89,8 +89,8 @@ void BF_print(Node * proot)
         else
         {
             std::cout << p->key_ << ' ';
-            queue.push(p->right_);
             queue.push(p->left_);
+            queue.push(p->right_);
         }
     }
 }
