@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stack>
-#include <queue
+#include <queue>
 
 // Node.h
 class Node // BinaryTreeNode
@@ -76,12 +76,12 @@ void preorder_stkDF_print(Node * proot)
 
 void BF_print(Node * proot)
 {
-    std::queue< Node * > stk;
-    stk.push(proot);
-    while (stk.size() != 0)
+    std::queue< Node * > queue;
+    queue.push(proot);
+    while (queue.size() != 0)
     {
-        Node * p = stk.top();
-        stk.pop();
+        Node * p = queue.front();
+        queue.pop();
         if (p == NULL)
         {
             std::cout << "* ";
@@ -89,8 +89,8 @@ void BF_print(Node * proot)
         else
         {
             std::cout << p->key_ << ' ';
-            stk.push(p->right_);
-            stk.push(p->left_);
+            queue.push(p->right_);
+            queue.push(p->left_);
         }
     }
 }
@@ -319,6 +319,10 @@ int main()
     inorder_DF_print(p5);
     std::cout << '\n';
     postorder_DF_print(p5);
+    std::cout << '\n';
+
+    std::cout << "BF print: ";
+    BF_print(p5);
     std::cout << '\n';
 
     return 0;
