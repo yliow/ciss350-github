@@ -8,9 +8,9 @@ class Matrix
   public:
     Matrix(int, int);
   private:
-    double * p_;
     int nrows_;
     int ncols_;
+    double * p_;
 };
 
 #endif
