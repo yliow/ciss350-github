@@ -8,6 +8,7 @@ int main()
     int x[10];
 
     m(0, 0) = 5; // m.operator()(0, 0) = 5
+    std::cout << m << '\n';
     
     return 0;
 }

@@ -7,6 +7,12 @@ Matrix::Matrix(int nrows, int ncols)
     : nrows_(nrows), ncols_(ncols), p_(new double[nrows * ncols])
 {}
 
+Matrix::~Matrix()
+{
+    delete [] p_;
+}
+
+
 int Matrix::nrows() const
 {
     return nrows_;
@@ -22,7 +28,7 @@ double Matrix::operator()(int r, int c) const
     return p_[r * ncols_ + c];
 }
 
-double & Matrix::operator()(int r, int c);
+double & Matrix::operator()(int r, int c)
 {
     return p_[r * ncols_ + c];
 }

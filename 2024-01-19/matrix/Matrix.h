@@ -7,6 +7,9 @@ class Matrix
 {
   public:
     Matrix(int, int);
+    ~Matrix();
+    Matrix(const Matrix &);
+    const Matrix & operator=(const Matrix &);
     int nrows() const;
     int ncols() const;
     double operator()(int, int) const;
