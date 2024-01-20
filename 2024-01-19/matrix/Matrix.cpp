@@ -12,6 +12,31 @@ Matrix::~Matrix()
     delete [] p_;
 }
 
+Matrix::Matrix(const Matrix & m)
+    : nrows_(m.nrows_), ncols_(m.ncols_),
+      p_(new double[m.nrows_ * ncols_])
+{
+    for (int i = 0; i < nrows_ * ncols_; ++i)
+    {
+        p_[i] = m.p_[i];
+    }
+}
+
+const Matrix & Matrix::operator=(const Matrix & m)
+{
+    if (this != &m)
+    {
+        delete [] p_;
+        nrows_ = m.nrows_;
+        ncols_ = m.ncols_;
+        p_ = new double[nrows_ * ncols_];
+        for (int i = 0; i < nrows_ * ncols_; ++i)
+        {
+            p_[i] = m.p_[i];
+        }
+    }
+    return (*this);
+}
 
 int Matrix::nrows() const
 {
