@@ -32,6 +32,19 @@ public:
     }
     SLNode * phead_;
 };
+std::ostream & operator<<(std::ostream & cout,
+                          const SLList & list)
+{
+    cout << "<SLList " << &list;
+    SLNode * p = list.phead_;
+    while (p != NULL)
+    {
+        cout << (*p) << '\n';
+        p = p->next_;
+    }
+    cout << ">";
+    return cout;
+}
 
 // 5 -> 3 -> 0 -> 2
 int main()
