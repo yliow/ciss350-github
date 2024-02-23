@@ -26,20 +26,18 @@ public:
     {}
     void insert_head(int key)
     {
-        SLNode * p = new SLNode(key);
-        p->next_ = phead_;
-        phead_ = p;
+        phead_ = new SLNode(key, phead_);
     }
     SLNode * phead_;
 };
 std::ostream & operator<<(std::ostream & cout,
                           const SLList & list)
 {
-    cout << "<SLList " << &list;
+    cout << "<SLList " << &list << '\n';
     SLNode * p = list.phead_;
     while (p != NULL)
     {
-        cout << (*p) << '\n';
+        cout << "    " << (*p) << '\n';
         p = p->next_;
     }
     cout << ">";
@@ -74,7 +72,15 @@ int main()
     // phead = &n5
     // SLList list // list.phead_
     SLList list;
-    list.insert_head(1);
+    std::cout << list << '\n';
+    list.insert_head(2);
+    std::cout << list << '\n';
+    list.insert_head(0);
+    std::cout << list << '\n';
+    list.insert_head(3);
+    std::cout << list << '\n';
+    list.insert_head(5);
+    std::cout << list << '\n';
     
     return 0;
 }
