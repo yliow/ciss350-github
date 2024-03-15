@@ -54,8 +54,11 @@ int main()
     std::cout << (*p10) << '\n';
     std::cout << (*p20) << '\n';
     std::cout << (*p8) << '\n';
+    std::cout << (*p2) << '\n';
     std::cout << (*p11) << '\n';
     std::cout << (*p1) << '\n';
     std::cout << (*p6) << '\n';
+
+    Node * proot = p10;
     return 0;
 }
