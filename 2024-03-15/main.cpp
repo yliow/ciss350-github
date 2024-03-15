@@ -73,7 +73,7 @@ int main()
 
     Node * proot = p10;
 
-    preorder_print(p10);
+    std::cout << "preorder at p10 ... "; preorder_print(p10); std::cout << '\n';
         
     return 0;
 }
