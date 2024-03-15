@@ -38,7 +38,9 @@ std::ostream & operator<<(std::ostream & cout, const Node & n)
 void preorder_print(Node * proot)
 {
     if (proot == NULL)
-    {}
+    {
+        std::cout << "* ";
+    }
     else
     {
         std::cout << proot->key_ << ' ';
