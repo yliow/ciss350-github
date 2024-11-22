@@ -49,7 +49,7 @@ bool bt_knights_tour(int n, Board & board, Solution & solution)
                     board[r][c] = 1;
                     if (bt_knights_tour(n, board, solution))
                     {
-                        true;
+                        return true;
                     }
                     board[r][c] = 0;
                     solution.pop_back();
