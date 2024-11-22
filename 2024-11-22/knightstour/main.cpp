@@ -28,28 +28,6 @@ std::ostream & operator<<(std::ostream & cout, const Board & board)
     return cout;
 }
 
-std::ostream & operator<<(std::ostream & cout, const Solution & solution)
-{
-    int n2 = solution.size();
-    int n = sqrt(n2);
-    std::vector< std::vector< int > > board(n, std::vector< int >(n, 0));
-    for (int i = 0; i < n2; ++i)
-    {
-        Move pair = solution[i];
-        int r = pair.first;
-        int c = pair.second;
-        board[r][c] = i;
-    }
-    for (auto & r: board)
-    {
-        for (auto e: r)
-        {
-            cout << '|' << std::setw(2) << e;
-        }
-        cout << "|\n";
-    }
-    return cout;
-}
 
 bool bt_knights_tour(int n, Board & board, Solution & solution)
 {
