@@ -3,6 +3,7 @@
 
 typedef std::vector< std::vector< bool > > Board;
 typedef std::vector< std::pair< int, int > > Solution;
+typedef std::pair< int, int > Move;
 
 std::ostream & operator<<(std::ostream & cout, const Board & board)
 {
@@ -27,6 +28,38 @@ std::ostream & operator<<(std::ostream & cout, const Board & board)
 
 bool bt_knights_tour(int n, Board & board, Solution & solution)
 {
+    if (solution.size() == n * n)
+    {
+        return true;
+    }
+    else
+    {
+        int n_ = int(solution.size());
+        if (n_ == 0)
+        {
+            for (int r = 0; r < n; ++r)
+            {
+                for (int c = 0; c < n; ++c)
+                {
+                    Move pair(r, c);
+                    solution.push_back(pair);
+                    board[r][c] = 1;
+                    bool flag = bt_knights_tour(n, board, solution);
+                    if (flag) return true;
+                    board[r][c] = 0;
+                    solution.pop_back();
+                }
+            }
+            return false;
+        }
+        else
+        {
+            Move pair = solution.back();
+            return false;
+        }
+        return false;
+    }
+    
     return false;
 }
 
