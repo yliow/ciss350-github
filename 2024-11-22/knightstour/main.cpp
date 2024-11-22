@@ -130,6 +130,6 @@ int main()
     Solution solution;
     
     bool flag = bt_knights_tour(n, board, solution);
-    
+    std::cout << "flag:" << flag << '\n';
     return 0;
 }
