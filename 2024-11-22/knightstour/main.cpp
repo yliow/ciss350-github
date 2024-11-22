@@ -66,8 +66,8 @@ bool bt_knights_tour(int n, Board & board, Solution & solution)
                              {+2,-1}, {+2,+1}};
             for (int i = 0; i < 8; ++i)
             {
-                int r = r0 + drc[0];
-                int c = c0 + drc[1];
+                int r = r0 + drc[i][0];
+                int c = c0 + drc[i][1];
                 if ((0 <= r && r < n && 0 <= c < n)
                     && board[r][c] == 0)
                 {
