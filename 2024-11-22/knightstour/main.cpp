@@ -6,6 +6,9 @@ typedef std::vector< std::vector< bool > > Board;
 std::ostream & operator<<(std::ostream & cout, const Board & board)
 {
     int n = int(board.size());
+    cout << '+';
+    for (int i = 0; i < n; ++i) cout << "-";
+    cout << "+\n";
     for (int r = 0; r < n; ++r)
     {
         cout << '|';
@@ -15,6 +18,9 @@ std::ostream & operator<<(std::ostream & cout, const Board & board)
         }
         cout << "|\n";
     }
+    cout << '+';
+    for (int i = 0; i < n; ++i) cout << "-";
+    cout << "+\n";
     return cout;
 }
 
