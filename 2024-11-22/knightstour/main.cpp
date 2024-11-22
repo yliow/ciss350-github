@@ -2,6 +2,7 @@
 #include <vector>
 
 typedef std::vector< std::vector< bool > > Board;
+typedef std::vector< std::pair< int, int > > Solution;
 
 std::ostream & operator<<(std::ostream & cout, const Board & board)
 {
@@ -24,6 +25,11 @@ std::ostream & operator<<(std::ostream & cout, const Board & board)
     return cout;
 }
 
+bool bt_knights_tour(int n, Board & board, Solution & solution)
+{
+    return false;
+}
+
 int main()
 {
     int n;
@@ -36,7 +42,10 @@ int main()
         board[i].resize(n);
     }
     std::cout << board << '\n';
+
+    Solution solution;
     
-    //bool flag = bt_knights_tour(n, 
+    bool flag = bt_knights_tour(n, board, solution);
+                                
     return 0;
 }
