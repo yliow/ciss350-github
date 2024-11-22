@@ -38,7 +38,7 @@ std::ostream & operator<<(std::ostream & cout, const Solution & solution)
         Move pair = solution[i];
         int r = pair.first;
         int c = pair.second;
-        std::cout << "r,c:" << r << ' ' << c << '\n';
+        //std::cout << "r,c:" << r << ' ' << c << '\n';
         board[r][c] = i;
     }
     cout << '+';
