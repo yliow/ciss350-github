@@ -43,7 +43,7 @@ std::ostream & operator<<(std::ostream & cout, const Solution & solution)
         board[r][c] = i;
     }
     cout << '+';
-    for (int i = 0; i < n; ++i) cout << "-";
+    for (int i = 0; i < 3*n - 1; ++i) cout << "-";
     cout << "+\n";
     for (int r = 0; r < n; ++r)
     {
@@ -54,7 +54,7 @@ std::ostream & operator<<(std::ostream & cout, const Solution & solution)
         cout << "|\n";
     }
     cout << '+';
-    for (int i = 0; i < n; ++i) cout << "-";
+    for (int i = 0; i < 3*n - 1; ++i) cout << "-";
     cout << "+\n";
     return cout;
 }
