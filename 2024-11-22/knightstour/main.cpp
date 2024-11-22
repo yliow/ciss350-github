@@ -58,10 +58,6 @@ std::ostream & operator<<(std::ostream & cout, const Solution & solution)
     return cout;
 }
 
-
-
-
-
 bool bt_knights_tour(int n, Board & board, Solution & solution)
 {
     if (solution.size() == n * n)
