@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 typedef std::vector< std::vector< bool > > Board;
 typedef std::vector< std::pair< int, int > > Solution;
@@ -23,6 +24,14 @@ std::ostream & operator<<(std::ostream & cout, const Board & board)
     cout << '+';
     for (int i = 0; i < n; ++i) cout << "-";
     cout << "+\n";
+    return cout;
+}
+
+std::ostream & operator<<(std::ostream & cout, const Solution & solution)
+{
+    int n = sqrt(solution.size());
+    std::vector< std::vector< int > > board(n, std::vector< int >(n, 0));
+
     return cout;
 }
 
@@ -105,6 +114,11 @@ int main()
     Solution solution;
     
     bool flag = bt_knights_tour(n, board, solution);
-                                
+    if (flag)
+    {
+        std::cout << "success\n";
+        std::cout << solution << '\n';
+    }
+    
     return 0;
 }
