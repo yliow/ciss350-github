@@ -44,8 +44,10 @@ bool bt_knights_tour(int n, Board & board, Solution & solution)
                     Move pair(r, c);
                     solution.push_back(pair);
                     board[r][c] = 1;
-                    bool flag = bt_knights_tour(n, board, solution);
-                    if (flag) return true;
+                    if (bt_knights_tour(n, board, solution))
+                    {
+                        true;
+                    }
                     board[r][c] = 0;
                     solution.pop_back();
                 }
@@ -55,6 +57,9 @@ bool bt_knights_tour(int n, Board & board, Solution & solution)
         else
         {
             Move pair = solution.back();
+            int r0 = pair.first;
+            int c0 = pair.second;
+            std::cout << "r0,c0:" << r0 << ' ' << c0 << '\n';
             return false;
         }
         return false;
