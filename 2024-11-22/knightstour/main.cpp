@@ -60,6 +60,7 @@ std::ostream & operator<<(std::ostream & cout, const Solution & solution)
 
 bool bt_knights_tour(int n, Board & board, Solution & solution)
 {
+    //std::cout << solution.size() << '\n';         
     if (solution.size() == n * n)
     {
         return true;
@@ -73,6 +74,7 @@ bool bt_knights_tour(int n, Board & board, Solution & solution)
             {
                 for (int c = 0; c < n; ++c)
                 {
+                    std::cout << "0: r,c:" << r << ' ' << c << '\n';
                     Move pair(r, c);
                     solution.push_back(pair);
                     board[r][c] = 1;
@@ -103,6 +105,8 @@ bool bt_knights_tour(int n, Board & board, Solution & solution)
                 if ((0 <= r && r < n && 0 <= c && c < n)
                     && board[r][c] == 0)
                 {
+                    // std::cout << solution.size() + 1
+                    //           << " r,c:" << r << ' ' << c << '\n';
                     board[r][c] = 1;
                     Move pair(r, c);
                     solution.push_back(pair);
