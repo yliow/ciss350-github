@@ -53,8 +53,10 @@ int main()
     std::cout << "*p3: " << (*p3) << '\n';
 
     // TODO: Nodes not scheduled for visit
-    // TO_VISIT: Nodes scheduled for visit
+    // TO_VISIT: Nodes scheduled for visit and need to search fast
     // DONE: Nodes already processed (print)
+    //
+    // [TODO] ---> [TO VISIT] ----> [DONE]
     
     std::unordered_set< int > TODO;
     for (int i = 0; i < 4; ++i)
@@ -88,6 +90,17 @@ int main()
         Node * p = TO_VISIT.top();
         TO_VISIT.pop();
         std::cout << "*p: " << (*p) << '\n';
+
+        if (//p->left_ not in TO_VISIT
+            //&&
+            DONE.find(p->left_->key_) != DONE.end())
+        {
+            TO_VISIT.push(p->left_);
+        }
+        if (p->right_)
+        {
+            TO_VISIT.push(p->right_);
+        }
     }
 
     delete p0;
