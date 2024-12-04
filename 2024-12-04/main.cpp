@@ -52,6 +52,12 @@ int main()
     {
         TODO.insert(i);
     }
+
+    for (auto i: TODO)
+    {
+        std::cout << i << ' ';
+    }
+    std::cout << '\n';
     
     return 0;
 }
