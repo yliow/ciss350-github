@@ -68,13 +68,12 @@ int main()
     }
     std::cout << '\n';
 
-    std::stack< int > TO_VISIT;
+    std::stack< Node * > TO_VISIT;
     std::unordered_set< int > DONE;
 
     // pick someone to put into
     // say for now hardcode 0 as first node to visit
-    TO_VISIT.push(0);
-
+    TO_VISIT.push(p0);
 
     // graph traversal:
     // while stack is not empty:
@@ -86,6 +85,15 @@ int main()
 
     while (!TO_VISIT.empty())
     {
+        Node * p = TO_VISIT.top();
+        TO_VISIT.pop();
+        std::cout << "*p: " << (*p) << '\n';
     }
+
+    delete p0;
+    delete p1;
+    delete p2;
+    delete p3;
+    
     return 0;
 }
