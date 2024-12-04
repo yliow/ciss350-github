@@ -1,5 +1,7 @@
 #include <iostream>
 #include <unordered_set>
+#include <stack>
+
 
 class Node
 {
@@ -10,6 +12,9 @@ public:
     int key_;
     Node * left_;
     Node * right_;
+    // bool NOT_SCHEDULE;
+    // bool SCHEDULE;
+    // bool DONE;
 };
 
 std::ostream & operator<<(std::ostream & cout, const Node & n)
@@ -47,6 +52,10 @@ int main()
     std::cout << "*p2: " << (*p2) << '\n';
     std::cout << "*p3: " << (*p3) << '\n';
 
+    // TODO: Nodes not scheduled for visit
+    // TO_VISIT: Nodes scheduled for visit
+    // DONE: Nodes already processed (print)
+    
     std::unordered_set< int > TODO;
     for (int i = 0; i < 4; ++i)
     {
@@ -58,6 +67,25 @@ int main()
         std::cout << i << ' ';
     }
     std::cout << '\n';
-    
+
+    std::stack< int > TO_VISIT;
+    std::unordered_set< int > DONE;
+
+    // pick someone to put into
+    // say for now hardcode 0 as first node to visit
+    TO_VISIT.push(0);
+
+
+    // graph traversal:
+    // while stack is not empty:
+    //   v = pop stack
+    //   process v
+    //   for u in chilren of v:
+    //       if u already schedule in stack or u is already process,
+    //       ignore u. otherwise put u into the stack
+
+    while (!TO_VISIT.empty())
+    {
+    }
     return 0;
 }
