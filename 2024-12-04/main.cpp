@@ -38,6 +38,10 @@ int main()
     p0->left_ = p3; p0->right_ = p1;
     p1->left_ = p2;
     p2->right_ = p0;
+    std::cout << "*p0:" << (*p0) << '\n';
+    std::cout << "*p1:" << (*p1) << '\n';
+    std::cout << "*p2:" << (*p2) << '\n';
+    std::cout << "*p3:" << (*p3) << '\n';
     
     
     return 0;
