@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_set>
 
 class Node
 {
@@ -10,12 +11,13 @@ public:
     Node * left_;
     Node * right_;
 };
+
 std::ostream & operator<<(std::ostream & cout, const Node & n)
 {
     cout << "<Node " << &n << ' '
-         << n.key_ << ", "
-         << n.left_ << ", "
-         << n.right_ << '>';
+         << "key:" << n.key_ << ", "
+         << "left:" << n.left_ << ", "
+         << "right:" << n.right_ << '>';
     return cout;
 }
 
@@ -29,6 +31,8 @@ int main()
             |
             v
             3
+
+            4 -> 5
      */
 
     Node * p0 = new Node(0);
@@ -38,11 +42,16 @@ int main()
     p0->left_ = p3; p0->right_ = p1;
     p1->left_ = p2;
     p2->right_ = p0;
-    std::cout << "*p0:" << (*p0) << '\n';
-    std::cout << "*p1:" << (*p1) << '\n';
-    std::cout << "*p2:" << (*p2) << '\n';
-    std::cout << "*p3:" << (*p3) << '\n';
-    
+    std::cout << "*p0: " << (*p0) << '\n';
+    std::cout << "*p1: " << (*p1) << '\n';
+    std::cout << "*p2: " << (*p2) << '\n';
+    std::cout << "*p3: " << (*p3) << '\n';
+
+    std::unordered_set< int > TODO;
+    for (int i = 0; i < 4; ++i)
+    {
+        TODO.insert(i);
+    }
     
     return 0;
 }
