@@ -77,6 +77,7 @@ int main()
     // pick someone to put into
     // say for now hardcode 0 as first node to visit
     TO_VISIT.push(p0);
+    TO_VISIT_KEYS.insert(p0->key_); // ????
 
     // graph traversal:
     // while stack is not empty:
@@ -92,15 +93,20 @@ int main()
         TO_VISIT.pop();
         std::cout << "*p: " << (*p) << '\n';
 
-        if (p->left_ not in TO_VISIT                // p->left_ not in TO_VISIT
+        if (TO_VISIT_KEYS.find(p->left_->key_) == TO_VISIT_KEYS.end() // p->left_ not in TO_VISIT
             &&
-            DONE.find(p->left_->key_) != DONE.end() // p->left is not in DONE
+            DONE.find(p->left_->key_) == DONE.end()                    // p->left is not in DONE
             )
         {
+            std::cout << "p->left_->key_= " << p->left_->key_ << " added to stack\n"; 
             TO_VISIT.push(p->left_);
         }
-        if (p->right_)
+        if (TO_VISIT_KEYS.find(p->right_->key_) == TO_VISIT_KEYS.end() // p->right_ not in TO_VISIT
+            &&
+            DONE.find(p->right_->key_) == DONE.end()                    // p->right is not in DONE
+            )
         {
+            std::cout << "p->right_->key_= " << p->right_->key_ << " added to stack\n"; 
             TO_VISIT.push(p->right_);
         }
     }
