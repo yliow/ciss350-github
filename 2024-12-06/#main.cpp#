@@ -116,18 +116,36 @@ int main()
     }
 
     /*
-
       The above hardcoded the first node p0.
       You should put all the nodes into another pool.
       Then pick from the pool and go through the above alg.
-      When the above loop ends, pick another node from the pool until the pool is empty.
+      When the above loop ends, pick another node from the pool until the pool
+      is empty.
       Of course update the pool as your perform the graph traversal.
 
-      The graph traversal actually allows you to construct a tree inside the graph
-      if the graph is connected.
+      The graph traversal actually allows you to construct a tree inside the
+      graph if the graph is connected.
+      A tree containing all the nodes of a graph is called a spanning subtree
+      of the graph.
       If the graph is not connnected, you have a set of trees.
       That's called a forest.
-      
+
+      If the edges are weighted (with numbers), then you also want to know how
+      to construct a spanning subtree with smallest sum of weight.
+      This is called a minimum spanning subtree (MST).
+      This requires using a heap on the weighted edges.
+      There are many MST alg (prim is one)
+      The internet is a graph with many redundant edges.
+      Constructing a MST means finding a tree that allows packets to travel as
+      fast as possible
+      where the weights are the round trip time (rtt) of an edge.
+      Think of the nodes are routers.
+
+      Another alg is given two nodes find the shortest path between the two nodes.
+      Shortest mean the path with smallest sum of weight.
+      Dijkstra's shortest path alg is the standard one (and is in the AI class).
+
+      Etc.
      */
     
 
