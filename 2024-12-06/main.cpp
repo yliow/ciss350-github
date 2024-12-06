@@ -90,16 +90,18 @@ int main()
     while (!TO_VISIT.empty())
     {
         Node * p = TO_VISIT.top();
-        TO_VISIT.pop();
+        TO_VISIT.pop(); TO_VISIT_KEYS.erase(p->key_);
         std::cout << "*p: " << (*p) << '\n';
+        DONE.insert(p->key_);
 
+        // put children into stack (if nec)
         if (TO_VISIT_KEYS.find(p->left_->key_) == TO_VISIT_KEYS.end() // p->left_ not in TO_VISIT
             &&
             DONE.find(p->left_->key_) == DONE.end()                    // p->left is not in DONE
             )
         {
             std::cout << "p->left_->key_= " << p->left_->key_ << " added to stack\n"; 
-            TO_VISIT.push(p->left_);
+            TO_VISIT.push(p->left_); TO_VISIT_KEYS.insert(p->left_->key_);
         }
         if (TO_VISIT_KEYS.find(p->right_->key_) == TO_VISIT_KEYS.end() // p->right_ not in TO_VISIT
             &&
@@ -107,8 +109,11 @@ int main()
             )
         {
             std::cout << "p->right_->key_= " << p->right_->key_ << " added to stack\n"; 
-            TO_VISIT.push(p->right_);
+            TO_VISIT.push(p->right_); TO_VISIT_KEYS.insert(p->left_->key_);
         }
+        char c;
+        std::cout << "? ";
+        std::cin >> c;
     }
 
     delete p0;

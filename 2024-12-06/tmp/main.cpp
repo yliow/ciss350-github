@@ -17,6 +17,13 @@ int main()
 
     it = xs.find(0);
     std::cout << (it == xs.end() ? "end reached\n" : "end not reached\n");
+
+    xs.erase(42);
+    for (auto & e: xs)
+    {
+        std::cout << e << ' ';
+    }
+    std::cout << '\n';
     
     return 0;
 }
