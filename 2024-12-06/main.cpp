@@ -76,8 +76,7 @@ int main()
 
     // pick someone to put into
     // say for now hardcode 0 as first node to visit
-    TO_VISIT.push(p0);
-    TO_VISIT_KEYS.insert(p0->key_); // ????
+    TO_VISIT.push(p0); TO_VISIT_KEYS.insert(p0->key_); 
 
     // graph traversal:
     // while stack is not empty:
