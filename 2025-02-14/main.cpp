@@ -27,6 +27,11 @@ int main()
     SLNode * p0 = new SLNode(0);
     SLNode * p1 = new SLNode(1);
 
+    std::cout << (*p5) << '\n';
+    std::cout << (*p3) << '\n';
+    std::cout << (*p0) << '\n';
+    std::cout << (*p1) << '\n';
+    
     delete p5;
     delete p3;
     delete p0;
