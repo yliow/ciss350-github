@@ -26,6 +26,28 @@ public:
     SLList()
         : phead_(NULL)
     {}
+    // TODO:
+    // ~SLList()
+    // SLList(const SLList &)
+    // operator=(const SLList &)
+    // needs to be implemented
+    void insert_head(int key)
+    {
+        phead_ = new SLNode(key, phead_);
+    }
+    void delete_head()
+    {
+        if (phead_ != NULL)
+        {
+            SLNode * p = phead_;
+            phead_ = phead_->next_;
+            delete p;
+        }
+    }
+    int head() const
+    {
+        return phead_->key_;
+    }
 //private:
     SLNode * phead_;
 };
@@ -84,5 +106,31 @@ int main()
     // list.add(5)
     // list.delete(5)
     std::cout << list << '\n';
+    list.insert_head(1);
+    std::cout << list << '\n';
+    list.insert_head(0);
+    std::cout << list << '\n';
+    list.insert_head(3);
+    std::cout << list << '\n';
+    list.insert_head(5);
+    std::cout << list << '\n';
+
+    std::cout << "about to remove " << list.head() << '\n';
+    list.delete_head();
+    std::cout << list << '\n';
+    list.delete_head();
+    std::cout << list << '\n';
+    list.delete_head();
+    std::cout << list << '\n';
+    list.delete_head();
+    std::cout << list << '\n';
+    list.delete_head();
+    std::cout << list << '\n';
+    list.delete_head();
+    std::cout << list << '\n';
     return 0;
 }
+
+
+
+
