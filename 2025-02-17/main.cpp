@@ -31,12 +31,14 @@ public:
 };
 std::ostream & operator<<(std::ostream & cout, const SLList &  list)
 {
+    cout << "<SLList " << &list << '\n';
     SLNode * p = list.phead_;
     while (p != NULL)
     {
-        std::cout << (*p) << '\n';
+        std::cout << "    " << (*p) << '\n';
         p = p->next_;
     }
+    cout << '>';
     return cout;
 }
 
@@ -77,8 +79,10 @@ int main()
     delete p1;
 
 
+    std::cout << "begin of list ...\n";
     SLList list;
     // list.add(5)
+    // list.delete(5)
     std::cout << list << '\n';
     return 0;
 }
