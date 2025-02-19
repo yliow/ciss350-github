@@ -2,6 +2,13 @@
 array   5, 3, 1, 0
 SLList  5->3->1->0
 DLList  5<->3<->1<->0
+        ^           ^
+        |           |
+        phead       ptail
+DLList  ?<->5<->3<->1<->0<->?
+        ^   head            ^
+        |                   |
+        pheadsentinel       ptailsentinel
  */
 #include <iostream>
 
@@ -24,8 +31,46 @@ std::ostream & operator<<(std::ostream & cout, const DLNode & node)
     return cout;
 }
 
+
+class DLList
+{
+public:
+    // initially
+    // headsentinel       tailsentinel
+    // ?<---------------->?
+    // ^                  ^
+    // |                  |
+    // pheadsentinel_     ptailsentinel_
+    DLList()
+        : pheadsentinel_(new DLNode(-9999)),
+          ptailsentinel_(new DLNode(9999))
+    {
+        pheadsentinel_->next_ = ptailsentinel_;
+        ptailsentinel_->prev_ = pheadsentinel_;
+    }
+    // TOOD: ~DLList();
+    //       DLList(const DLList &);
+    //       DLList & operator=(const DLList &);
+    DLNode * pheadsentinel_;
+    DLNode * ptailsentinel_;
+};
+std::ostream & operator<<(std::ostream & cout, const DLList & list)
+{
+    DLNode * p = list.pheadsentinel_->next;
+    cout << "<DLList " << &list << '\n';
+    while (p != list.ptailsentinel_)
+    {
+        cout << "    " << (*p) << '\n';
+        p = p->next_;
+    }
+    cout << '>';
+    return cout;
+}
+
 int main()
 {
     DLNode * p5 = new DLNode(5);
-    std::cout << p5 << '\n';
+    std::cout << (*p5) << '\n';
+
+    return 0;
 }
