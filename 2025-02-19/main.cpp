@@ -51,6 +51,14 @@ public:
     // TOOD: ~DLList();
     //       DLList(const DLList &);
     //       DLList & operator=(const DLList &);
+    void insert_head(int key)
+    {
+        /*
+                 insert 42 into
+                 ? <-----> 5 <----> 3 <-----> ......
+                 phs
+         */
+    }
     DLNode * pheadsentinel_;
     DLNode * ptailsentinel_;
 };
@@ -74,5 +82,6 @@ int main()
 
     DLList list;
     std::cout << list << '\n';
+    
     return 0;
 }
