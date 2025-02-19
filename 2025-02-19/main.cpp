@@ -56,7 +56,7 @@ public:
 };
 std::ostream & operator<<(std::ostream & cout, const DLList & list)
 {
-    DLNode * p = list.pheadsentinel_->next;
+    DLNode * p = list.pheadsentinel_->next_;
     cout << "<DLList " << &list << '\n';
     while (p != list.ptailsentinel_)
     {
@@ -69,8 +69,10 @@ std::ostream & operator<<(std::ostream & cout, const DLList & list)
 
 int main()
 {
-    DLNode * p5 = new DLNode(5);
-    std::cout << (*p5) << '\n';
+    // DLNode * p5 = new DLNode(5);
+    // std::cout << (*p5) << '\n';
 
+    DLList list;
+    std::cout << list << '\n';
     return 0;
 }
