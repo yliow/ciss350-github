@@ -95,16 +95,32 @@ Node * find(Node * p, int target)
 
 int depth(Node * p, int target)
 {
-    if (p == NULL) return -1;
+    if (p == NULL)
+    {
+        std::cout << "depth ... base case return -1\n";
+        return -1;
+    }
     else
     {
+        std::cout << "depth ... recursive case key:" << p->key_ << '\n';
         int leftdepth = depth(p->left_, target);
+        std::cout << "depth ... recursive case key:" << p->key_
+                  << " leftdepth:" << leftdepth << '\n';
         int rightdepth = depth(p->right_, target);
+        std::cout << "depth ... recursive case key:" << p->key_
+                  << " rightdepth:" << rightdepth << '\n';
         if (leftdepth == -1)
         {
-            if (rightdepth == -1) return -1;
+            if (rightdepth == -1)
+            {
+                std::cout << "depth ... recursive case key:" << p->key_
+                          << " return -1\n";
+                return -1;
+            }
             else
             {
+                std::cout << "depth ... recursive case key:" << p->key_
+                          << " return rightdepth + 1:" << rightdepth + 1 << "\n";
                 return rightdepth + 1;
             }
         }
@@ -112,10 +128,15 @@ int depth(Node * p, int target)
         {
             if (rightdepth == -1)
             {
+                std::cout << "depth ... recursive case key:" << p->key_
+                          << " return leftdepth + 1:" << leftdepth + 1 << "\n";
                 return leftdepth + 1;
             }
             else // target in left and right subtree
             {
+                std::cout << "depth ... recursive case key:" << p->key_
+                          << " return min + 1:"
+                          << min(leftdepth, rightdepth) + 1 << "\n";
                 return min(leftdepth, rightdepth) + 1;
             }
         }
