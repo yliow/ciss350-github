@@ -170,6 +170,7 @@ void preorder_df_print(Node * p)
 {
     if (p == NULL)
     {
+        std::cout << "* ";
     }
     else
     {
