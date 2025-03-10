@@ -109,35 +109,44 @@ int depth(Node * p, int target)
         int rightdepth = depth(p->right_, target);
         std::cout << "depth ... recursive case key:" << p->key_
                   << " rightdepth:" << rightdepth << '\n';
-        if (leftdepth == -1)
+        if (p->key_ == target)
         {
-            if (rightdepth == -1)
-            {
-                std::cout << "depth ... recursive case key:" << p->key_
-                          << " return -1\n";
-                return -1;
-            }
-            else
-            {
-                std::cout << "depth ... recursive case key:" << p->key_
-                          << " return rightdepth + 1:" << rightdepth + 1 << "\n";
-                return rightdepth + 1;
-            }
+            std::cout << "depth ... recursive case key:" << p->key_
+                  << " FOUND return 0\n";
+            return 0;
         }
-        else // target is in left subtree
+        else
         {
-            if (rightdepth == -1)
+            if (leftdepth == -1)
             {
-                std::cout << "depth ... recursive case key:" << p->key_
-                          << " return leftdepth + 1:" << leftdepth + 1 << "\n";
-                return leftdepth + 1;
+                if (rightdepth == -1)
+                {
+                    std::cout << "depth ... recursive case key:" << p->key_
+                              << " return -1\n";
+                    return -1;
+                }
+                else
+                {
+                    std::cout << "depth ... recursive case key:" << p->key_
+                              << " return rightdepth + 1:" << rightdepth + 1 << "\n";
+                    return rightdepth + 1;
+                }
             }
-            else // target in left and right subtree
+            else // target is in left subtree
             {
-                std::cout << "depth ... recursive case key:" << p->key_
-                          << " return min + 1:"
-                          << min(leftdepth, rightdepth) + 1 << "\n";
-                return min(leftdepth, rightdepth) + 1;
+                if (rightdepth == -1)
+                {
+                    std::cout << "depth ... recursive case key:" << p->key_
+                              << " return leftdepth + 1:" << leftdepth + 1 << "\n";
+                    return leftdepth + 1;
+                }
+                else // target in left and right subtree
+                {
+                    std::cout << "depth ... recursive case key:" << p->key_
+                              << " return min + 1:"
+                              << min(leftdepth, rightdepth) + 1 << "\n";
+                    return min(leftdepth, rightdepth) + 1;
+                }
             }
         }
     }
