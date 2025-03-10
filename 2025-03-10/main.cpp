@@ -191,6 +191,8 @@ int main()
 
     int depth8 = depth(p10, 8);
     std::cout << "depth of 8 (from root 10): " << depth8 << '\n';
+    int depth6 = depth(p10, 6);
+    std::cout << "depth of 6 (from root 10): " << depth6 << '\n';
     
     // don't forget to deallocate
     return 0;
