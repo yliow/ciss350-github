@@ -82,8 +82,9 @@ Node * find(Node * p, int target)
             if (q != NULL) return q;
             else
             {
-                return find(p->right, target);
+                return find(p->right_, target);
             }
+        }
     }
 }
 
