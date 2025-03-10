@@ -166,6 +166,20 @@ int max(Node * p)
     }
 }
 
+void preorder_df_print(Node * p)
+{
+    if (p == NULL)
+    {
+    }
+    else
+    {
+        // preorder = root, left, right
+        std::cout << p->key_ << ' ';
+        preorder_df_print(p->left_);
+        preorder_df_print(p->right_);
+    }
+}
+
 /*
          10
 
@@ -215,6 +229,10 @@ int main()
     std::cout << "depth of 5 (from root 8): " << depth5 << '\n';
 
     std::cout << "Max at key 10:" << max(p10) << '\n';
+
+
+    preorder_df_print(p10); std::cout << '\n';
+    
     // don't forget to deallocate
     return 0;
 }
