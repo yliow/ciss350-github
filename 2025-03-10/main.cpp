@@ -152,6 +152,20 @@ int depth(Node * p, int target)
     }
 }
 
+int max(Node * p)
+{
+    if (p == NULL)
+    {
+        return -9999; // ASSUMES THE KEYS ARE ALL > -9999
+    }
+    else
+    {
+        int leftmax = max(p->left_);
+        int rightmax = max(p->right_);
+        return max(p->key_, max(leftmax, rightmax));
+    }
+}
+
 /*
          10
 
@@ -193,7 +207,14 @@ int main()
     std::cout << "depth of 8 (from root 10): " << depth8 << '\n';
     int depth6 = depth(p10, 6);
     std::cout << "depth of 6 (from root 10): " << depth6 << '\n';
+
+    int depth7 = depth(p10, 7);
+    std::cout << "depth of 7 (from root 10): " << depth7 << '\n';
     
+    int depth5 = depth(p8, 5);
+    std::cout << "depth of 5 (from root 8): " << depth5 << '\n';
+
+    std::cout << "Max at key 10:" << max(p10) << '\n';
     // don't forget to deallocate
     return 0;
 }
