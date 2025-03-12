@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 
 class Node
 {
@@ -203,6 +204,30 @@ void preorder_df_print_with_stk(Node * p)
     }
 }
 
+
+void bf_print_with_queue(Node * p)
+{
+    std::queue< Node * > queue;
+    queue.push(p);
+    while (!queue.empty())
+    {
+        Node * p = queue.front();
+        queue.pop();
+        if (p == NULL)
+        {
+            std::cout << "* ";
+        }
+        else
+        {
+            std::cout << p->key_ << ' ';
+            queue.push(p->left_);
+            queue.push(p->right_);
+        }
+    }
+}
+
+
+
 /*
          10
 
@@ -256,7 +281,10 @@ int main()
 
     preorder_df_print(p10); std::cout << '\n';
     preorder_df_print_with_stk(p10); std::cout << '\n';
-    
+
+    std::cout << "bf printing\n";
+    bf_print_with_queue(p10); std::cout << '\n';
+
     // don't forget to deallocate
     return 0;
 }
