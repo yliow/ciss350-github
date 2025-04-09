@@ -2,11 +2,14 @@
 #include <iomanip>
 #include <vector>
 
+std::ostream & operator<<(std::ostream & cout,
+                          const std::vector< std::vector< int > > & board);
 bool knightstour(int n,
                  std::vector< std::pair< int, int > > & solution,
                  std::vector< std::vector< int > > & board)
 {
-    if (solution.size() == n)
+    std::cout << board << '\n';
+    if (solution.size() == n * n)
     {
         return true;
     }
@@ -30,6 +33,29 @@ bool knightstour(int n,
         }
         else
         {
+            int r = solution[solution.size() - 1].first;
+            int c = solution[solution.size() - 1].second;
+            int drc[8][2] = {{-1, +2}, {-2, +1}, {-2, -1}, {-1, -2},
+                             {+1, -2}, {+2, -1}, {+2, +1}, {+1, +2}};
+            for (int i = 0; i < 8; ++i)
+            {
+                int r1 = r + drc[i][0];
+                int c1 = c + drc[i][1];
+                if (0 <= r1 && r1 < n && 0 <= c1 && c1 < n)
+                {
+                    if (board[r1][c1] == -1)
+                    {
+                        solution.push_back(std::pair< int, int >(r1, c1));
+                        board[r1][c1] = solution.size() - 1;
+                        bool b = knightstour(n, solution, board);
+                        if (b) return true;
+                        std::cout << "ERROR ... try next option\n";
+                        solution.pop_back();
+                        board[r1][c1] = -1;
+                    }
+                }
+            }
+            std::cout << "ERROR ... backtrack\n";
             return false;
         }
     }
@@ -71,6 +97,7 @@ int main()
     if (b)
     {
         std::cout << "success ... solution is\n";
+        std::cout << board << '\n';
     }
     else
     {
