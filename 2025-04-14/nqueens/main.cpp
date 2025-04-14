@@ -22,7 +22,7 @@ std::ostream & operator<<(std::ostream & cout,
     return cout;
 }
 
-bool nqueens(std::vector< int > & solution, std::vector< std::vector< int > > & board)
+bool nqueens(std::vector< std::pair< int, int> > & solution, std::vector< std::vector< int > > & board)
 {
     if (solution.size() == board.size())
     {
@@ -67,7 +67,7 @@ bool nqueens(std::vector< int > & solution, std::vector< std::vector< int > > & 
             if (found_attack) continue;
 
             // this is a valid move: not attacking pairs
-            solution.push_back(std::pair(r, c));
+            solution.push_back(std::pair< int, int >(r, c));
             board[r][c] = 1;
             bool b = nqueens(solution, board);
             if (b) return true;
@@ -83,7 +83,7 @@ int main()
     int n;
     std::cin >> n;
 
-    std::vector< int > solution;
+    std::vector< std::pair< int, int> > solution;
     std::vector< std::vector< int > > board(n, std::vector< int >(n, -1));
     std::cout << board << '\n';
     
