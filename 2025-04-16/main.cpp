@@ -43,6 +43,19 @@ std::ostream & operator<<(std::ostream & cout, const Graph & G)
     return cout;
 }
 
+// use bt
+bool gc(const Graph & G, std::vector< int > & solution)
+{
+    if (solution.size() == G.n_)
+    {
+        return true;
+    }
+}
+
+std::vector< int > graphcoloring(const Graph & G, int numcolors)
+{
+}
+
 int main()
 {
     // std::list< int > xs;
@@ -63,6 +76,8 @@ int main()
     G.add(0, 0);
     G.add(0, 1);
     G.add(0, 2);
+    G.add(1, 2);
+    G.add(2, 0);
     std::cout << G << '\n';
     
     
