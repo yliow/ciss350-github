@@ -61,6 +61,8 @@ int main()
 
     Graph G(3);
     G.add(0, 0);
+    G.add(0, 1);
+    G.add(0, 2);
     std::cout << G << '\n';
     
     
