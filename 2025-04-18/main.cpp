@@ -57,7 +57,7 @@ std::ostream & operator<<(std::ostream & cout, const Graph & G)
 }
 
 // use bt
-bool gc(const Graph & G, std::vector< int > & solution)
+bool gc(const Graph & G, int numcolors, std::vector< int > & solution)
 {
     if (solution.size() == G.n_)
     {
@@ -65,6 +65,28 @@ bool gc(const Graph & G, std::vector< int > & solution)
     }
     else
     {
+        int n = solution.size(); // going to color n
+        for (int c = 0; c < numcolors; ++c)
+        {
+            // check if n->c is a valid coloring
+            // i.e. check if neighbor m has not been colored with c
+            bool is_valid = true;
+            for (int m = 0; m < n; ++m)
+            {
+                if (solution[m] == c)
+                {
+                    is_valid = false;
+                    break;
+                }
+            }
+            if (is_valid)
+            {
+                solution.push_back(c);
+                bool b = gc(G, numcolors, solution);
+                if (b) return true;
+                solution.pop_back()
+            }
+        }
         return false;
     }
 }
@@ -94,7 +116,7 @@ int main()
     std::vector< int > solution;
     // solution[5] = 2 means 5 is colored with color 2
     
-    bool b = gc(G, solution);
+    bool b = gc(G, 2, solution);
     if (b)
     {
         std::cout << "success ...\n";
