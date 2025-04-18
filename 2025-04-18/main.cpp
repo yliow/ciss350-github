@@ -15,6 +15,19 @@ std::ostream & operator<<(std::ostream & cout,
     return cout;
 }
 
+std::ostream & operator<<(std::ostream & cout, const std::vector< int > & s)
+{
+    cout << '{';
+    int i = 0;
+    for (auto e: s)
+    {
+        cout << i << "->" << e << " ";
+        ++i;
+    }
+    cout << '}';
+    return cout;
+}
+
 class Graph
 {
 public:
