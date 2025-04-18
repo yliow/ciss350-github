@@ -38,6 +38,10 @@ public:
     {
         adjlist_[u].push_front(v);
     }
+    bool is_adj(int n, int m) const
+    {
+        return (std::find(adjlist_[n].begin(), adjlist_[n].end(), m) != adjlist_[n].end());
+    }
 //private:
     int n_; // number of nodes
     std::vector< std::list< int > > adjlist_;
@@ -73,7 +77,7 @@ bool gc(const Graph & G, int numcolors, std::vector< int > & solution)
             bool is_valid = true;
             for (int m = 0; m < n; ++m)
             {
-                if (solution[m] == c)
+                if (G.is_adj(n, m) && solution[m] == c)
                 {
                     is_valid = false;
                     break;
@@ -84,7 +88,7 @@ bool gc(const Graph & G, int numcolors, std::vector< int > & solution)
                 solution.push_back(c);
                 bool b = gc(G, numcolors, solution);
                 if (b) return true;
-                solution.pop_back()
+                solution.pop_back();
             }
         }
         return false;
@@ -116,7 +120,7 @@ int main()
     std::vector< int > solution;
     // solution[5] = 2 means 5 is colored with color 2
     
-    bool b = gc(G, 2, solution);
+    bool b = gc(G, 3, solution);
     if (b)
     {
         std::cout << "success ...\n";
