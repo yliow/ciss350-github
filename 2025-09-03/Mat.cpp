@@ -11,6 +11,11 @@ Mat::~Mat()
     delete[] p_;
 }
 
+int Mat::nrows() const
+{
+    return nrows_;
+}
+
 std::ostream & operator<<(std::ostream & cout, const Mat & m)
 {
     return cout;
