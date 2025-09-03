@@ -10,6 +10,7 @@ class Mat
     ~Mat();
     int nrows() const;
     int ncols() const;
+    double operator()(int, int) const;
   private:
     int nrows_;
     int ncols_;
