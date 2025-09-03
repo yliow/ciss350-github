@@ -16,6 +16,11 @@ int Mat::nrows() const
     return nrows_;
 }
 
+int Mat::ncols() const
+{
+    return ncols_;
+}
+
 std::ostream & operator<<(std::ostream & cout, const Mat & m)
 {
     return cout;

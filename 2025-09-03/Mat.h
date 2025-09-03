@@ -9,6 +9,7 @@ class Mat
     Mat(int, int);
     ~Mat();
     int nrows() const;
+    int ncols() const;
   private:
     int nrows_;
     int ncols_;
