@@ -1,6 +1,8 @@
 #ifndef MAT_H
 #define MAT_H
 
+#include <iostream>
+
 class Mat
 {
   public:
@@ -9,9 +11,9 @@ class Mat
   private:
     int nrows_;
     int ncols_;
-    double p_;
+    double * p_;
 };
 
-std::ostream & operator<<(std::stream &, const Mat &);
+std::ostream & operator<<(std::ostream &, const Mat &);
 
 #endif
