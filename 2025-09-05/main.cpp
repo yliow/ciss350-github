@@ -8,6 +8,8 @@ int main()
     // std::cout << m.ncols() << '\n';
     m(0, 0) = 42; // m.operator()(0, 0) = 42
     std::cout << m << '\n';
-    
+
+    Mat n(m); // Mat n = m;
+    std::cout << n << '\n';
     return 0;
 } // m.~Mat()
