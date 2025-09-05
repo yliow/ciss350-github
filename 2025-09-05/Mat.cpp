@@ -21,6 +21,22 @@ Mat::~Mat()
     delete[] p_;
 }
 
+const Mat & Mat::operator=(const Mat & m)
+{
+    if (this != &m)
+    {
+        nrows_ = m.nrows_;
+        ncols_ = m.ncols;
+        delete[] p_;
+        p_ = new double[nrows_ * ncols_];
+        for (int i = 0; i < nrows_ * ncols_; ++i)
+        {
+            p_[i] = m.p_[i];
+        }
+    }
+    return (*this);
+}
+
 int Mat::nrows() const
 {
     return nrows_;
