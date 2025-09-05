@@ -7,9 +7,10 @@ Mat::Mat(int nrows, int ncols)
 {}
 
 Mat::Mat(const Mat & m)
-    :nrows_(nrows), ncols_(ncols), p_(new double[nrow_ * ncols_])
+    :nrows_(m.nrows_), ncols_(m.ncols_),
+     p_(new double[m.nrows_ * m.ncols_])
 {
-    for (int i = 0; i < nrow_ * ncols_; ++i)
+    for (int i = 0; i < nrows_ * ncols_; ++i)
     {
         p_[i] = m.p_[i];
     }

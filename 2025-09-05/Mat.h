@@ -7,6 +7,7 @@ class Mat
 {
   public:
     Mat(int, int);
+    Mat(const Mat &);
     ~Mat();
     int nrows() const;
     int ncols() const;
