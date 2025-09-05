@@ -15,5 +15,10 @@ int main()
 
     std::cout << m << '\n';
     std::cout << n << '\n';
+
+    m = n;
+    std::cout << m << '\n';
+    std::cout << n << '\n';
+    
     return 0;
 } // m.~Mat()

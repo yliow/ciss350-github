@@ -13,6 +13,7 @@ class Mat
     int ncols() const;
     double operator()(int, int) const;
     double & operator()(int, int);
+    const Mat & operator=(const Mat & m);
   private:
     int nrows_;
     int ncols_;
