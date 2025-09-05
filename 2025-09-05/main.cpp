@@ -11,5 +11,9 @@ int main()
 
     Mat n(m); // Mat n = m;
     std::cout << n << '\n';
+    n(1, 0) = -1;
+
+    std::cout << m << '\n';
+    std::cout << n << '\n';
     return 0;
 } // m.~Mat()
