@@ -20,7 +20,21 @@ std::ostream & operator<<(std::ostream & cout, const SLNode & n)
 
 int main()
 {
-    SLNode n5(5);
-    std::cout << n5 << '\n';
+    SLNode * n5 = new SLNode(5);
+    SLNode * n3 = new SLNode(3); n5->next_ = n3;
+    SLNode * n0 = new SLNode(0); n3->next_ = n0;
+    SLNode * n1 = new SLNode(1); n0->next_ = n1;
+    SLNode * phead = n5;
+    
+    std::cout << (*n5) << '\n';
+    std::cout << (*n3) << '\n';
+    std::cout << (*n0) << '\n';
+    std::cout << (*n1) << '\n';
+
+    delete n1;
+    delete n0;
+    delete n3;
+    delete n5;
+    
     return 0;
 }
