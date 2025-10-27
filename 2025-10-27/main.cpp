@@ -27,6 +27,7 @@ std::ostream & operator<<(std::ostream & cout, const Node & node)
 {
     cout << "<Node " << &node << ' '
          << "key:" << node.key_ << ", "
+         << "parent:" << node.parent_ << ", "
          << "left:" << node.left_ << ", "
          << "right:" << node.right_ << '>';
     return cout;
