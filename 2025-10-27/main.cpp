@@ -14,10 +14,11 @@
 class Node
 {
 public:
-    Node(int key, Node * left=NULL, Node * right=NULL)
-        : key_(key), left_(left), right_(right)
+    Node(int key, Node * parent=NULL, Node * left=NULL, Node * right=NULL)
+        : key_(key), parent_(parent), left_(left), right_(right)
     {}
     int key_;
+    Node * parent_;
     Node * left_;
     Node * right_;
 };
