@@ -1,0 +1,13 @@
+student@fedora 2026-02-16] g++ *.cpp
+main.cpp: In function ‘std::ostream operator<<(std::ostream&, const SLList&)’:
+main.cpp:45:12: error: use of deleted function ‘std::basic_ostream<_CharT, _Traits>::basic_ostream(const std::basic_ostream<_CharT, _Traits>&) [with _CharT = char; _Traits = std::char_traits<char>]’
+   45 |     return cout;
+      |            ^~~~
+In file included from /usr/include/c++/14/iostream:41,
+                 from main.cpp:1:
+/usr/include/c++/14/ostream:444:7: note: declared here
+  444 |       basic_ostream(const basic_ostream&) = delete;
+      |       ^~~~~~~~~~~~~
+main.cpp:45:12: note: use ‘-fdiagnostics-all-candidates’ to display considered candidates
+   45 |     return cout;
+      |            ^~~~
