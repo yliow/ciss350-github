@@ -19,12 +19,27 @@ std::ostream & operator<<(std::ostream & cout, const SLNode & n)
     return cout;
 }
 
+class UnderflowError
+{};
+    
 class SLList
 {
 public:
     SLList()
         : phead_(NULL)
     {}
+    int head() const
+    {
+        if (phead_ == NULL)
+        {
+            // .... throw an exception
+            throw UnderflowError(); 
+        }
+        else
+        {
+            return phead_->key_;
+        }
+    }
     void insert_head(int key)
     {
         phead_ = new SLNode(key, phead_);
@@ -56,6 +71,34 @@ std::ostream & operator<<(std::ostream & cout, const SLList & list)
     cout << ">";
     return cout;
 }
+
+class DLNode
+{
+public:
+    DLNode(int key, DLNode * prev=NULL, DLNode * next=NULL)
+        : key_(key), prev_(prev), next_(next) 
+    {}
+    int key_;
+    DLNode * prev_;
+    DLNode * next_;
+};
+std::ostream & operator<<(std::ostream & cout, const DLNode & n)
+{
+    cout << "<DLNode " << &n << ' '
+         << "key:" << n.key_ << ", "
+         << "prev:" << n.prev_ << ", "
+         << "next:" << n.next_
+         << '>';
+    return cout;
+}
+class DLList
+{
+public:
+    DLNode()
+        :
+    {}
+};
+
 int main()
 {
     // 5 -> 3 -> 1 -> 0
@@ -69,24 +112,31 @@ int main()
     // std::cout << *n1 << '\n';
     // std::cout << *n0 << '\n';
 
-    SLNode * phead = n5;
-    // print everything that phead points to
-    while (phead != NULL)
-    {
-        std::cout << (*phead) << '\n';
-        phead = phead->next_;
-    }
+    // SLNode * phead = n5;
+    // // print everything that phead points to
+    // while (phead != NULL)
+    // {
+    //     std::cout << (*phead) << '\n';
+    //     phead = phead->next_;
+    // }
 
-    SLList list;
-    std::cout << list << '\n';
-    list.insert_head(0);
-    std::cout << list << '\n';
-    list.insert_head(1);
-    std::cout << list << '\n';
-    list.insert_head(3);
-    std::cout << list << '\n';
-    list.insert_head(5);
-    std::cout << list << '\n';
+    // SLList list;
+    // std::cout << list << '\n';
+    // list.insert_head(0);
+    // std::cout << list << '\n';
+    // list.insert_head(1);
+    // std::cout << list << '\n';
+    // list.insert_head(3);
+    // std::cout << list << '\n';
+    // list.insert_head(5);
+    // std::cout << list << '\n';
+
+    // list.delete_head();
+    // std::cout << list << '\n';
+
+    DLNode * p5 = new DLNode(5);
+    std::cout << (*p5) << '\n';
+
     
     return 0;
 }
