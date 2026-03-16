@@ -18,9 +18,9 @@ public:
         : key_(key), parent_(parent), left_(left), right_(right)
     {}
     int key_;
+    Node * parent_;
     Node * left_;
     Node * right_;
-    Node * parent_;
 };
 
 std::ostream & operator<<(std::ostream & cout, const Node & n)
@@ -36,6 +36,18 @@ std::ostream & operator<<(std::ostream & cout, const Node & n)
 
 void preorder_DFT_print(Node * p)
 {
+    if (p == NULL)
+    {
+        // case: EMPTY tree case
+        std::cout << ' ';
+    }
+    else
+    {
+        // case: NON EMPTY tree case
+        std::cout << p->key_ << ' ';
+        preorder_DFT_print(p->left_);
+        preorder_DFT_print(p->right_);
+    }
 }
     
 int main()
