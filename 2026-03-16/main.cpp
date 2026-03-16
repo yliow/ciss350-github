@@ -77,8 +77,8 @@ void postorder_DFT_print(Node * p)
     {
         // case: NON EMPTY tree case
         postorder_DFT_print(p->left_);
-        std::cout << p->key_ << ' ';
         postorder_DFT_print(p->right_);
+        std::cout << p->key_ << ' ';
     }
 }
 
