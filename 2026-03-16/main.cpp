@@ -39,13 +39,29 @@ void preorder_DFT_print(Node * p)
     if (p == NULL)
     {
         // case: EMPTY tree case
-        std::cout << ' ';
+        std::cout << "* ";
     }
     else
     {
         // case: NON EMPTY tree case
         std::cout << p->key_ << ' ';
         preorder_DFT_print(p->left_);
+        preorder_DFT_print(p->right_);
+    }
+}
+
+void inorder_DFT_print(Node * p)
+{
+    if (p == NULL)
+    {
+        // case: EMPTY tree case
+        std::cout << "* ";
+    }
+    else
+    {
+        // case: NON EMPTY tree case
+        preorder_DFT_print(p->left_);
+        std::cout << p->key_ << ' ';
         preorder_DFT_print(p->right_);
     }
 }
@@ -104,7 +120,8 @@ int main()
       
      */
 
-    preorder_DFT_print(p10);
+    preorder_DFT_print(p10); std::cout << '\n';
+    inorder_DFT_print(p10); std::cout << '\n';
     
     return 0;
 }
