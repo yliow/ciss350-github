@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <cmath>
 
 bool backtrack_knights_tour(int n,
                             std::vector< std::vector< int > > & m,
@@ -41,9 +42,57 @@ bool backtrack_knights_tour(int n,
             {
                 int r0 = r + change[i][0];
                 int c0 = c + change[i][1];
+                if (0 <= r0 && r0 < n
+                    && 0 <= c0 && c0 < n
+                    && m[r0][c0] == 0)
+                {
+                    std::pair< int, int > p(r0, c0);
+                    solution.push_back(p);
+                    m[r0][c0] = 1;
+                    bool flag = backtrack_knights_tour(n, m, solution);
+                    if (flag)
+                    {
+                        return true;
+                    }
+                    solution.pop_back();
+                    m[r0][c0] = 0;
+                }
             }
+            return false;
         }
         return false;
+    }
+}
+
+void print(const std::vector< std::pair< int, int > > & solution)
+{
+    int size = (int) solution.size();
+    int n = (int) sqrt(size);
+    std::vector< std::vector< int > > m(n, std::vector< int >(n, 0));
+    for (int i = 0; i < size; ++i)
+    {
+        int r = solution[i].first;
+        int c = solution[i].second;
+        m[r][c] = i;
+    }
+    for (int c = 0; c < n; ++c)
+    {
+        std::cout << "+-";
+    }
+    std::cout << "+\n";
+    for (int r = 0; r < n; ++r)
+    {
+        std::cout << '|';
+        for (int c = 0; c < n; ++c)
+        {
+            std::cout << m[r][c] << '|';
+        }
+        std::cout << '\n';
+        for (int c = 0; c < n; ++c)
+        {
+            std::cout << "+-";
+        }
+        std::cout << "+\n";
     }
 }
 
@@ -74,6 +123,7 @@ int main()
     if (flag)
     {
         std::cout << "SUCCESS\n";
+        print(solution);
     }
     else
     {
